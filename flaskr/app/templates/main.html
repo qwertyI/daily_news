@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>供你所需的最新消息</title>
+</head>
+<body>
+
+    <table>
+        {% for info in infos %}
+        <tr>
+            <td>author : {{info.topic_author}}</td>
+        </tr>
+        <tr>
+            <td><a href={{info.topic_href}} target="_blank">{{info.topic_title}}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
