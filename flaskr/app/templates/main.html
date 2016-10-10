@@ -2,29 +2,34 @@
 <html lang="en">
 <link href="/static/aggsite.css" rel="stylesheet" type="text/css">
 <head>
+    <link rel="icon" href="/static/bitbug_favicon.ico" type="image/x-ico">
     <meta charset="UTF-8">
     <title>供你所需的最新消息</title>
 </head>
 <body>
-<div class="post_nav_block_wrapper">
-                <ul class="post_nav_block">
-                        <li><a href="/info" class="current_nav">Test</a></li>
-                        <li><a href="/cnblog">博客园</a></li>
-                </ul>
-                <div class="clear"></div>
-            </div>
-
-    <table>
-        {% for info in infos %}
-        <tr>
-            <td><a class="titlelnk" href={{info.href}} target="_blank">{{info.title}}</a></td>
-        </tr>
-        <tr>
-            <td><a>推荐指数：{{info.recommended}}</a></td>
-            <td><a>阅读指数：{{info.readed}}</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-
+<div class="col-md">
+    <div class="post_nav_block_wrapper">
+        <ul class="post_nav_block">
+            <li><a href="/info" class={{class_status[0]}}>Test</a></li>
+            <li><a href="/cnblog" class={{class_status[1]}}>博客园</a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    {% for info in infos %}
+    <div class="post_item">
+        <table>
+            <tr>
+                <td><a class="titlelnk" href={{info.href}} target="_blank">{{info.title}}</a></td>
+            </tr>
+            <tr>
+                <td><a class="article_view">推荐指数：{{info.recommended}}</a>
+                    <a class="article_view">阅读指数：{{info.readed}}</a>
+                </td>
+            </tr>
+            <tr class="clear"></tr>
+        </table>
+    </div>
+    {% endfor %}
+</div>
 </body>
 </html>

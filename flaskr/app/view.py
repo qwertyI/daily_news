@@ -9,7 +9,7 @@ cursor = conn.cursor()
 
 @app.route('/info')
 def info():
-    cursor.execute('select id, topic_title, topic_href, topic_reply_num from topic order by id desc limit 10;')
+    cursor.execute('select id, topic_title, topic_href, topic_reply_num from topic order by spider_time desc limit 10;')
     result = cursor.fetchone()
     feed_response = []
     while result is not None:
@@ -29,12 +29,14 @@ def info():
         info['readed'] = 0
         infos.append(info)
 
-    return render_template('main.html', infos=infos)
+    class_status = ['current_nav', '']
+
+    return render_template('main.html', infos=infos, class_status=class_status)
 
 
 @app.route('/cnblog')
 def cnblog():
-    cursor.execute('select id, title, recommended, readed, href from cnblog order by id desc limit 9;')
+    cursor.execute('select id, title, recommended, readed, href from cnblog order by spider_time desc limit 10;')
     result = cursor.fetchone()
     feed_response = []
     while result is not None:
@@ -55,7 +57,9 @@ def cnblog():
         info['href'] = response['content']['href'].decode('unicode-escape')
         infos.append(info)
 
-    return render_template('main.html', infos=infos)
+    class_status = ['', 'current_nav']
+
+    return render_template('main.html', infos=infos, class_status=class_status)
 
 
 
