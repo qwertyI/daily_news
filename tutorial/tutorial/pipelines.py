@@ -4,7 +4,7 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
-from testerhome_db import Testerhome_Topic, DBSession, Topic_Detail
+from testerhome_db import Testerhome_Topic, DBSession, Topic_Detail, CnBlogNews
 from scrapy.log import logger
 import settings
 import functools
@@ -67,23 +67,19 @@ class TesterhomeSpiderPipeline(object):
         return item
 
 
-class TesterhomeSpiderDetailPipeline(object):
+class CnBlogSpiderPipeline(object):
 
     def __init__(self):
         self.session = DBSession()
 
     @check_spider_pipeline
     def process_item(self, item, spider):
-        topic_detail = Topic_Detail(topic_id=item['topic_id'][0].encode('unicode-escape'),
-                                    topic_title=item['topic_title'][0].encode('unicode-escape'),
-                                    topic_author=item['topic_author'][0].encode('unicode-escape'),
-                                    topic_body=item['topic_author'][0].encode('unicode-escape'),
-                                    topic_like_num=item['topic_like_num'][0].encode('unicode-escape'),
-                                    topic_reply_num=item['topic_reply_num'][0].encode('unicode-escape'),
-                                    topic_timeago=item['topic_timeago'][0].encode('unicode-escape'),
-                                    spider_time=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+        cn_blog_news = CnBlogNews(title=item['title'][0].encode('unicode-escape'),
+                                  recommended=item['recommended'][0].encode('unicode-escape'),
+                                  href=item['href'][0].encode('unicode-escape'),
+                                  readed=item['readed'][0].encode('unicode-escape'))
         try:
-            self.session.add(topic_detail)
+            self.session.add(cn_blog_news)
             self.session.commit()
         except:
             self.session.rollback()

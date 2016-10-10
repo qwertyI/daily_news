@@ -74,6 +74,7 @@ ROBOTSTXT_OBEY = True
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'tutorial.pipelines.TesterhomeSpiderPipeline': 300,
+   'tutorial.pipelines.CnBlogSpiderPipeline': 400,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

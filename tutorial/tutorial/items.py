@@ -21,3 +21,11 @@ class TesterhomeSpiderItem(scrapy.Item):
     topic_author_img = scrapy.Field()
     topic_class = scrapy.Field()
     topic_reply_num = scrapy.Field()
+
+
+class CnBlogSpiderItem(scrapy.Item):
+    title = scrapy.Field()
+    recommended = scrapy.Field()
+    readed = scrapy.Field()
+    href = scrapy.Field()
+

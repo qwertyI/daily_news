@@ -56,4 +56,20 @@ class Topic_Detail(Base):
         self.topic_timeago = topic_timeago
         self.spider_time = spider_time
 
+
+class CnBlogNews(Base):
+    __tablename__ = 'cnblog'
+
+    id = Column(INT, primary_key=True, unique=True, autoincrement=True)
+    title = Column(String(500))
+    recommended = Column(Integer)
+    readed = Column(Integer)
+    href = Column(String(200))
+
+    def __init__(self, title, recommended, readed, href):
+        self.title = title
+        self.recommended = recommended
+        self.readed = readed
+        self.href = href
+
 DBSession = sessionmaker(bind=settings.engine)
