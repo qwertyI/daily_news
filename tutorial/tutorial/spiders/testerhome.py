@@ -10,18 +10,24 @@ class TesterhomeSpider(spiders.Spider):
     name = "testerhome"
     allowed_domains = ["testerhome.org"]
     start_urls = [
-        'http://testerhome.com'
+        'https://testerhome.com/topics/last'
     ]
     pipeline = set([pipelines.TesterhomeSpiderPipeline])
 
     def parse(self, response):
-        for sel in response.xpath('//div[contains(@class,"topic media topic")]')[0:10]:
+        print '==='
+        print len(response.xpath('//div[contains(@class,"topic media topic")]'))
+        print '==='
+        for sel in response.xpath('//div[contains(@class,"topic media topic")]')[0:15]:
             item = TesterhomeSpiderItem()
             item['topic_title'] = sel.xpath('div/div[contains(@class,"title media-heading")]/a/text()').extract()
-            item['topic_href'] = [self.start_urls[0] + sel.xpath('div/div[contains(@class,"title media-heading")]/a/@href').extract()[0]]
+            item['topic_href'] = ['https://testerhome.com/' + sel.xpath('div/div[contains(@class,"title media-heading")]/a/@href').extract()[0]]
             item['topic_author'] = sel.xpath('div/div[contains(@class,"info")]/a/@data-name').extract()
             item['topic_class'] = sel.xpath('div/div[contains(@class,"info")]/a[contains(@class,"node")]/text()').extract()
-            item['topic_reply_num'] = sel.xpath('div[contains(@class,"count media-right")]/a/text()').extract()
+            if len(sel.xpath('div[contains(@class,"count media-right")]/a/text()').extract()) == 0:
+                item['topic_reply_num'] = [0]
+            else:
+                item['topic_reply_num'] = sel.xpath('div[contains(@class,"count media-right")]/a/text()').extract()
             item['topic_author_img'] = sel.xpath('div/a/img/@src').extract()
             yield item
 

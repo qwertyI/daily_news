@@ -30,7 +30,7 @@ class test_newest_info(Resource):
             result = cursor.fetchone()
         return feed_response
 
-api.add_resource(HelloWorld, '/')
+api.add_resource(HelloWorld, '/hello_world')
 api.add_resource(test_newest_info, '/test_newest_info')
 
 if __name__ == '__main__':

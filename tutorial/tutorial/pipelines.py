@@ -49,13 +49,13 @@ class TesterhomeSpiderPipeline(object):
 
     @check_spider_pipeline
     def process_item(self, item, spider):
-        my_topic = Testerhome_Topic(topic_title=item['topic_title'][0].encode('unicode-escape'),
-                                    topic_href=item['topic_href'][0].encode('unicode-escape'),
-                                    topic_author=item['topic_author'][0].encode('unicode-escape'),
-                                    topic_author_img=item['topic_author_img'][0].encode('unicode-escape'),
-                                    topic_class=item['topic_class'][0].encode('unicode-escape'),
-                                    topic_reply_num=item['topic_reply_num'][0].encode('unicode-escape'),
-                                    spider_time=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+        my_topic = Testerhome_Topic(topic_title=item['topic_title'][0].encode('unicode-escape').decode('unicode-escape'),
+                                    topic_href=item['topic_href'][0].encode('unicode-escape').decode('unicode-escape'),
+                                    topic_author=item['topic_author'][0].encode('unicode-escape').decode('unicode-escape'),
+                                    topic_author_img=item['topic_author_img'][0].encode('unicode-escape').decode('unicode-escape'),
+                                    topic_class=item['topic_class'][0].encode('unicode-escape').decode('unicode-escape'),
+                                    topic_reply_num=item['topic_reply_num'][0].encode('unicode-escape').decode('unicode-escape'),
+                                    spider_time=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S').decode('unicode-escape'))
         try:
             self.session.add(my_topic)
             self.session.commit()
@@ -74,10 +74,10 @@ class CnBlogSpiderPipeline(object):
 
     @check_spider_pipeline
     def process_item(self, item, spider):
-        cn_blog_news = CnBlogNews(title=item['title'][0].encode('unicode-escape'),
-                                  recommended=item['recommended'][0].encode('unicode-escape'),
-                                  href=item['href'][0].encode('unicode-escape'),
-                                  readed=item['readed'][0].encode('unicode-escape'))
+        cn_blog_news = CnBlogNews(title=item['title'][0].encode('unicode-escape').decode('unicode-escape'),
+                                  recommended=item['recommended'][0].encode('unicode-escape').decode('unicode-escape'),
+                                  href=item['href'][0].encode('unicode-escape').decode('unicode-escape'),
+                                  readed=item['readed'][0].encode('unicode-escape').decode('unicode-escape'))
         try:
             self.session.add(cn_blog_news)
             self.session.commit()
