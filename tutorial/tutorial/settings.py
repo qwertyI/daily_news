@@ -15,7 +15,7 @@ BOT_NAME = 'tutorial'
 SPIDER_MODULES = ['tutorial.spiders']
 NEWSPIDER_MODULE = 'tutorial.spiders'
 
-engine = create_engine('mysql+mysqldb://root:111111@localhost:33/testerhome?charset=utf8',echo=True)
+engine = create_engine('mysql+mysqldb://root:111111@localhost:33/testerhome?charset=utf8', echo=True)
 
 mysql_host = 'localhost'
 mysql_db = 'testerhome'
@@ -75,6 +75,7 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
    'tutorial.pipelines.TesterhomeSpiderPipeline': 300,
    'tutorial.pipelines.CnBlogSpiderPipeline': 400,
+   'tutorial.pipelines.BoleSpiderPipeline': 500
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

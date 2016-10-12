@@ -72,4 +72,18 @@ class CnBlogNews(Base):
         self.readed = readed
         self.href = href
 
+
+class Bole(Base):
+    __tablename__ = 'bole'
+
+    id = Column(INT, primary_key=True, unique=True, autoincrement=True)
+    title = Column(String(500))
+    img = Column(String(200))
+    href = Column(String(200))
+
+    def __init__(self, title, img, href):
+        self.title = title
+        self.img = img
+        self.href = href
+
 DBSession = sessionmaker(bind=settings.engine)

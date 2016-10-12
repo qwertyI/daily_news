@@ -29,3 +29,9 @@ class CnBlogSpiderItem(scrapy.Item):
     readed = scrapy.Field()
     href = scrapy.Field()
 
+
+class BoleSpiderItem(scrapy.Item):
+    title = scrapy.Field()
+    img = scrapy.Field()
+    href = scrapy.Field()
+

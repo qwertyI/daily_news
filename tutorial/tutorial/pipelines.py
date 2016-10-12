@@ -4,7 +4,7 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
-from testerhome_db import Testerhome_Topic, DBSession, Topic_Detail, CnBlogNews
+from testerhome_db import Testerhome_Topic, DBSession, Topic_Detail, CnBlogNews, Bole
 from scrapy.log import logger
 import settings
 import functools
@@ -80,6 +80,27 @@ class CnBlogSpiderPipeline(object):
                                   readed=item['readed'][0].encode('unicode-escape').decode('unicode-escape'))
         try:
             self.session.add(cn_blog_news)
+            self.session.commit()
+        except:
+            self.session.rollback()
+            raise
+        finally:
+            self.session.close()
+        return item
+
+
+class BoleSpiderPipeline(object):
+
+    def __init__(self):
+        self.session = DBSession()
+
+    @check_spider_pipeline
+    def process_item(self, item, spider):
+        bole = Bole(title=item['title'][0].encode('unicode-escape').decode('unicode-escape'),
+                    img=item['img'][0].encode('unicode-escape').decode('unicode-escape'),
+                    href=item['href'][0].encode('unicode-escape').decode('unicode-escape'))
+        try:
+            self.session.add(bole)
             self.session.commit()
         except:
             self.session.rollback()

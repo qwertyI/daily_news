@@ -67,4 +67,34 @@ def cnblog():
     return render_template('main.html', infos=infos, class_status=class_status)
 
 
+@app.route('/bole')
+def bole():
+    conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
+    cursor = conn.cursor()
+    cursor.execute('select distinct(href), title, id, img, href from bole order by id desc limit 10;')
+    result = cursor.fetchone()
+    feed_response = []
+    while result is not None:
+        response = {'id': result[2], 'content': {}}
+        response['content']['title'] = result[1]
+        response['content']['img'] = result[3]
+        response['content']['href'] = result[4]
+        feed_response.append(response)
+        result = cursor.fetchone()
+
+    infos = []
+    for response in feed_response:
+        info = {}
+        info['id'] = response['id']
+        info['title'] = response['content']['title']
+        info['recommended'] = 0
+        info['readed'] = 0
+        info['href'] = response['content']['href']
+        infos.append(info)
+
+    class_status = ['', '', 'current_nav']
+
+    return render_template('main.html', infos=infos, class_status=class_status)
+
+
 
