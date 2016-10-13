@@ -77,3 +77,193 @@
 [2016-10-13 15:06:36 +0000] [3365] [INFO] Booting worker with pid: 3365
 [2016-10-13 15:06:36 +0000] [3366] [INFO] Booting worker with pid: 3366
 [2016-10-13 15:06:36 +0000] [3367] [INFO] Booting worker with pid: 3367
+[2016-10-13 16:20:23 +0000] [3357] [INFO] Handling signal: term
+[2016-10-13 16:20:23 +0000] [3364] [INFO] Worker exiting (pid: 3364)
+[2016-10-13 16:20:23 +0000] [3365] [INFO] Worker exiting (pid: 3365)
+[2016-10-13 16:20:23 +0000] [3366] [INFO] Worker exiting (pid: 3366)
+[2016-10-13 16:20:23 +0000] [3367] [INFO] Worker exiting (pid: 3367)
+[2016-10-13 16:20:23 +0000] [3357] [INFO] Shutting down: Master
+[2016-10-13 16:20:36 +0000] [5217] [INFO] Starting gunicorn 19.6.0
+[2016-10-13 16:20:36 +0000] [5217] [INFO] Listening at: http://0.0.0.0:5000 (5217)
+[2016-10-13 16:20:36 +0000] [5217] [INFO] Using worker: sync
+[2016-10-13 16:20:36 +0000] [5226] [INFO] Booting worker with pid: 5226
+[2016-10-13 16:20:36 +0000] [5227] [INFO] Booting worker with pid: 5227
+[2016-10-13 16:20:36 +0000] [5232] [INFO] Booting worker with pid: 5232
+[2016-10-13 16:20:36 +0000] [5235] [INFO] Booting worker with pid: 5235
+[2016-10-13 16:21:27 +0000] [5217] [CRITICAL] WORKER TIMEOUT (pid:5227)
+[2016-10-13 16:21:27 +0000] [5217] [CRITICAL] WORKER TIMEOUT (pid:5235)
+[2016-10-13 16:21:27 +0000] [5227] [INFO] Worker exiting (pid: 5227)
+[2016-10-13 16:21:27 +0000] [5235] [INFO] Worker exiting (pid: 5235)
+[2016-10-13 16:21:27 +0000] [5307] [INFO] Booting worker with pid: 5307
+[2016-10-13 16:21:27 +0000] [5308] [INFO] Booting worker with pid: 5308
+[2016-10-13 16:25:02 +0000] [5217] [CRITICAL] WORKER TIMEOUT (pid:5232)
+[2016-10-13 16:25:02 +0000] [5217] [CRITICAL] WORKER TIMEOUT (pid:5307)
+[2016-10-13 16:25:02 +0000] [5232] [INFO] Worker exiting (pid: 5232)
+[2016-10-13 16:25:02 +0000] [5307] [INFO] Worker exiting (pid: 5307)
+[2016-10-13 16:25:02 +0000] [5522] [INFO] Booting worker with pid: 5522
+[2016-10-13 16:25:02 +0000] [5523] [INFO] Booting worker with pid: 5523
+[2016-10-13 16:25:04 +0000] [5522] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 557, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 136, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/yuan/daily_news/flaskr/hello.py", line 4, in <module>
+    from app import app
+  File "/home/yuan/daily_news/flaskr/app/__init__.py", line 5, in <module>
+    from app import view
+  File "/home/yuan/daily_news/flaskr/app/view.py", line 7, in <module>
+    conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
+  File "build/bdist.linux-x86_64/egg/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "build/bdist.linux-x86_64/egg/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (111)")
+[2016-10-13 16:25:04 +0000] [5523] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 557, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 126, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 136, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/wsgiapp.py", line 65, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/wsgiapp.py", line 52, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/home/yuan/daily_news/flaskr/hello.py", line 4, in <module>
+    from app import app
+  File "/home/yuan/daily_news/flaskr/app/__init__.py", line 5, in <module>
+    from app import view
+  File "/home/yuan/daily_news/flaskr/app/view.py", line 7, in <module>
+    conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
+  File "build/bdist.linux-x86_64/egg/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "build/bdist.linux-x86_64/egg/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' (111)")
+[2016-10-13 16:25:04 +0000] [5522] [INFO] Worker exiting (pid: 5522)
+[2016-10-13 16:25:04 +0000] [5523] [INFO] Worker exiting (pid: 5523)
+[2016-10-13 16:25:04 +0000] [5226] [INFO] Worker exiting (pid: 5226)
+[2016-10-13 16:25:04 +0000] [5308] [INFO] Worker exiting (pid: 5308)
+Traceback (most recent call last):
+  File "/usr/local/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/wsgiapp.py", line 74, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 192, in run
+    super(Application, self).run()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 218, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 331, in halt
+    self.stop()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 381, in stop
+    time.sleep(0.1)
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 231, in handle_chld
+    self.reap_workers()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 506, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2016-10-13 16:30:20 +0000] [3326] [INFO] Starting gunicorn 19.6.0
+[2016-10-13 16:30:20 +0000] [3326] [INFO] Listening at: http://0.0.0.0:5000 (3326)
+[2016-10-13 16:30:20 +0000] [3326] [INFO] Using worker: sync
+[2016-10-13 16:30:20 +0000] [3331] [INFO] Booting worker with pid: 3331
+[2016-10-13 16:30:20 +0000] [3332] [INFO] Booting worker with pid: 3332
+[2016-10-13 16:30:20 +0000] [3333] [INFO] Booting worker with pid: 3333
+[2016-10-13 16:30:20 +0000] [3334] [INFO] Booting worker with pid: 3334
+[2016-10-13 16:33:18 +0000] [3563] [INFO] Starting gunicorn 19.6.0
+[2016-10-13 16:33:18 +0000] [3563] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:33:18 +0000] [3563] [ERROR] Retrying in 1 second.
+[2016-10-13 16:33:19 +0000] [3563] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:33:19 +0000] [3563] [ERROR] Retrying in 1 second.
+[2016-10-13 16:33:20 +0000] [3563] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:33:20 +0000] [3563] [ERROR] Retrying in 1 second.
+[2016-10-13 16:33:21 +0000] [3563] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:33:21 +0000] [3563] [ERROR] Retrying in 1 second.
+[2016-10-13 16:33:22 +0000] [3563] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:33:22 +0000] [3563] [ERROR] Retrying in 1 second.
+[2016-10-13 16:33:23 +0000] [3563] [ERROR] Can't connect to ('0.0.0.0', 5000)
+[2016-10-13 16:35:35 +0000] [3691] [INFO] Starting gunicorn 19.6.0
+[2016-10-13 16:35:35 +0000] [3691] [INFO] Listening at: http://0.0.0.0:5000 (3691)
+[2016-10-13 16:35:35 +0000] [3691] [INFO] Using worker: sync
+[2016-10-13 16:35:35 +0000] [3696] [INFO] Booting worker with pid: 3696
+[2016-10-13 16:35:35 +0000] [3701] [INFO] Booting worker with pid: 3701
+[2016-10-13 16:35:35 +0000] [3706] [INFO] Booting worker with pid: 3706
+[2016-10-13 16:35:35 +0000] [3709] [INFO] Booting worker with pid: 3709
+[2016-10-13 16:35:37,623] ERROR in app: Exception on /cnblog [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/yuan/daily_news/flaskr/app/view.py", line 37, in cnblog
+    info['id'] = response['id']
+TypeError: string indices must be integers, not str
+[2016-10-13 16:36:03 +0000] [3730] [INFO] Starting gunicorn 19.6.0
+[2016-10-13 16:36:03 +0000] [3730] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:36:03 +0000] [3730] [ERROR] Retrying in 1 second.
+[2016-10-13 16:36:04 +0000] [3730] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:36:04 +0000] [3730] [ERROR] Retrying in 1 second.
+[2016-10-13 16:36:05 +0000] [3730] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:36:05 +0000] [3730] [ERROR] Retrying in 1 second.
+[2016-10-13 16:36:06 +0000] [3730] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:36:06 +0000] [3730] [ERROR] Retrying in 1 second.
+[2016-10-13 16:36:07 +0000] [3730] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:36:07 +0000] [3730] [ERROR] Retrying in 1 second.
+[2016-10-13 16:36:08 +0000] [3730] [ERROR] Can't connect to ('0.0.0.0', 5000)
+[2016-10-13 16:38:55 +0000] [3869] [INFO] Starting gunicorn 19.6.0
+[2016-10-13 16:38:55 +0000] [3869] [INFO] Listening at: http://0.0.0.0:5000 (3869)
+[2016-10-13 16:38:55 +0000] [3869] [INFO] Using worker: sync
+[2016-10-13 16:38:55 +0000] [3874] [INFO] Booting worker with pid: 3874
+[2016-10-13 16:38:55 +0000] [3877] [INFO] Booting worker with pid: 3877
+[2016-10-13 16:38:55 +0000] [3879] [INFO] Booting worker with pid: 3879
+[2016-10-13 16:38:55 +0000] [3885] [INFO] Booting worker with pid: 3885
+[2016-10-13 16:40:45 +0000] [3923] [INFO] Starting gunicorn 19.6.0
+[2016-10-13 16:40:45 +0000] [3923] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:40:45 +0000] [3923] [ERROR] Retrying in 1 second.
+[2016-10-13 16:40:46 +0000] [3923] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:40:46 +0000] [3923] [ERROR] Retrying in 1 second.
+[2016-10-13 16:40:47 +0000] [3923] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:40:47 +0000] [3923] [ERROR] Retrying in 1 second.
+[2016-10-13 16:40:48 +0000] [3923] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:40:48 +0000] [3923] [ERROR] Retrying in 1 second.
+[2016-10-13 16:40:49 +0000] [3923] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:40:49 +0000] [3923] [ERROR] Retrying in 1 second.
+[2016-10-13 16:40:50 +0000] [3923] [ERROR] Can't connect to ('0.0.0.0', 5000)
+[2016-10-13 16:40:51 +0000] [3953] [INFO] Starting gunicorn 19.6.0
+[2016-10-13 16:40:51 +0000] [3953] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:40:51 +0000] [3953] [ERROR] Retrying in 1 second.
+[2016-10-13 16:40:52 +0000] [3953] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:40:52 +0000] [3953] [ERROR] Retrying in 1 second.
+[2016-10-13 16:40:53 +0000] [3953] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-13 16:40:53 +0000] [3953] [ERROR] Retrying in 1 second.
+[2016-10-13 16:40:54 +0000] [3953] [INFO] Listening at: http://0.0.0.0:5000 (3953)
+[2016-10-13 16:40:54 +0000] [3953] [INFO] Using worker: sync
+[2016-10-13 16:40:54 +0000] [3963] [INFO] Booting worker with pid: 3963
+[2016-10-13 16:40:54 +0000] [3966] [INFO] Booting worker with pid: 3966
+[2016-10-13 16:40:54 +0000] [3971] [INFO] Booting worker with pid: 3971
+[2016-10-13 16:40:54 +0000] [3972] [INFO] Booting worker with pid: 3972
