@@ -10,11 +10,15 @@
 <div class="col-md">
     <div class="post_nav_block_wrapper">
         <ul class="post_nav_block">
-            <li><a href="/info" class={{class_status[0]}}>Test</a></li>
-            <li><a href="/cnblog" class={{class_status[1]}}>博客园</a></li>
-            <li><a href="/bole" class={{class_status[2]}}>伯乐在线</a></li>
+            <li><a id='info' href="/info">Test</a></li>
+            <li><a id='cnblog' href="/cnblog">博客园</a></li>
+            <li><a id='bole' href="/bole">伯乐在线</a></li>
         </ul>
         <div class="clear"></div>
+        <script type="text/javascript">
+            var obj = document.getElementById('{{class_status}}')
+            obj.setAttribute("class", "current_nav")
+        </script>
     </div>
     {% for info in infos %}
     <div class="post_item">

@@ -4,11 +4,12 @@ import requests
 from flask import render_template
 import MySQLdb
 
+conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
+
 
 @app.route('/')
 @app.route('/info')
 def info():
-    conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
     cursor = conn.cursor()
     cursor.execute('select distinct(topic_href), topic_title, id, topic_href, topic_reply_num from topic order by spider_time desc limit 10;')
     result = cursor.fetchone()
@@ -31,14 +32,14 @@ def info():
         info['readed'] = 0
         infos.append(info)
 
-    class_status = ['current_nav', '']
+    class_status = 'info'
 
     return render_template('main.html', infos=infos, class_status=class_status)
 
 
 @app.route('/cnblog')
 def cnblog():
-    conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
+    # conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
     cursor = conn.cursor()
     cursor.execute('select distinct(href), title, id, recommended, readed, href from cnblog order by spider_time desc limit 10;')
     result = cursor.fetchone()
@@ -62,14 +63,14 @@ def cnblog():
         info['href'] = response['content']['href']
         infos.append(info)
 
-    class_status = ['', 'current_nav']
+    class_status = 'cnblog'
 
     return render_template('main.html', infos=infos, class_status=class_status)
 
 
 @app.route('/bole')
 def bole():
-    conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
+    # conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
     cursor = conn.cursor()
     cursor.execute('select distinct(href), title, id, img, href from bole order by id desc limit 10;')
     result = cursor.fetchone()
@@ -92,7 +93,7 @@ def bole():
         info['href'] = response['content']['href']
         infos.append(info)
 
-    class_status = ['', '', 'current_nav']
+    class_status = 'bole'
 
     return render_template('main.html', infos=infos, class_status=class_status)
 
