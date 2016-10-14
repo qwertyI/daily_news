@@ -21,7 +21,7 @@ class TesterhomeSpider(spiders.Spider):
         for sel in response.xpath('//div[contains(@class,"topic media topic")]')[0:15]:
             item = TesterhomeSpiderItem()
             item['topic_title'] = sel.xpath('div/div[contains(@class,"title media-heading")]/a/text()').extract()
-            item['topic_href'] = ['https://testerhome.com/' + sel.xpath('div/div[contains(@class,"title media-heading")]/a/@href').extract()[0]]
+            item['topic_href'] = ['https://testerhome.com' + sel.xpath('div/div[contains(@class,"title media-heading")]/a/@href').extract()[0]]
             item['topic_author'] = sel.xpath('div/div[contains(@class,"info")]/a/@data-name').extract()
             item['topic_class'] = sel.xpath('div/div[contains(@class,"info")]/a[contains(@class,"node")]/text()').extract()
             if len(sel.xpath('div[contains(@class,"count media-right")]/a/text()').extract()) == 0:

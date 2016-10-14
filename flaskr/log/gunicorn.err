@@ -267,3 +267,145 @@ TypeError: string indices must be integers, not str
 [2016-10-13 16:40:54 +0000] [3966] [INFO] Booting worker with pid: 3966
 [2016-10-13 16:40:54 +0000] [3971] [INFO] Booting worker with pid: 3971
 [2016-10-13 16:40:54 +0000] [3972] [INFO] Booting worker with pid: 3972
+[2016-10-13 16:49:29 +0000] [3953] [CRITICAL] WORKER TIMEOUT (pid:3963)
+[2016-10-13 16:49:29 +0000] [3953] [CRITICAL] WORKER TIMEOUT (pid:3971)
+[2016-10-13 16:49:29 +0000] [3963] [INFO] Worker exiting (pid: 3963)
+[2016-10-13 16:49:29 +0000] [3971] [INFO] Worker exiting (pid: 3971)
+[2016-10-13 16:49:29 +0000] [3953] [CRITICAL] WORKER TIMEOUT (pid:3966)
+[2016-10-13 16:49:29 +0000] [3966] [INFO] Worker exiting (pid: 3966)
+[2016-10-13 16:49:29 +0000] [4412] [INFO] Booting worker with pid: 4412
+[2016-10-13 16:49:29 +0000] [4413] [INFO] Booting worker with pid: 4413
+[2016-10-13 16:49:29 +0000] [4418] [INFO] Booting worker with pid: 4418
+[2016-10-13 16:50:33 +0000] [3953] [CRITICAL] WORKER TIMEOUT (pid:4412)
+[2016-10-13 16:50:33 +0000] [3953] [CRITICAL] WORKER TIMEOUT (pid:4413)
+[2016-10-13 16:50:33 +0000] [4413] [INFO] Worker exiting (pid: 4413)
+[2016-10-13 16:50:33 +0000] [4412] [INFO] Worker exiting (pid: 4412)
+[2016-10-13 16:50:33 +0000] [4470] [INFO] Booting worker with pid: 4470
+[2016-10-13 16:50:33 +0000] [4471] [INFO] Booting worker with pid: 4471
+[2016-10-13 17:48:09 +0000] [4470] [INFO] Worker exiting (pid: 4470)
+[2016-10-13 17:48:09 +0000] [4471] [INFO] Worker exiting (pid: 4471)
+[2016-10-13 17:48:09 +0000] [3972] [INFO] Worker exiting (pid: 3972)
+[2016-10-13 17:48:09 +0000] [3953] [INFO] Handling signal: term
+[2016-10-13 17:48:09 +0000] [4418] [INFO] Worker exiting (pid: 4418)
+[2016-10-13 17:54:55 +0000] [3142] [INFO] Starting gunicorn 19.6.0
+[2016-10-13 17:54:55 +0000] [3142] [INFO] Listening at: http://0.0.0.0:5000 (3142)
+[2016-10-13 17:54:55 +0000] [3142] [INFO] Using worker: sync
+[2016-10-13 17:54:55 +0000] [3152] [INFO] Booting worker with pid: 3152
+[2016-10-13 17:54:55 +0000] [3156] [INFO] Booting worker with pid: 3156
+[2016-10-13 17:54:55 +0000] [3157] [INFO] Booting worker with pid: 3157
+[2016-10-13 17:54:55 +0000] [3158] [INFO] Booting worker with pid: 3158
+[2016-10-14 13:03:16,199] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/yuan/daily_news/flaskr/app/view.py", line 16, in info
+    info['id'] = response['id']
+TypeError: string indices must be integers
+[2016-10-14 13:03:37,313] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/yuan/daily_news/flaskr/app/view.py", line 16, in info
+    info['id'] = response['id']
+TypeError: string indices must be integers
+[2016-10-14 13:04:07 +0000] [3142] [CRITICAL] WORKER TIMEOUT (pid:3152)
+[2016-10-14 13:04:07 +0000] [3142] [CRITICAL] WORKER TIMEOUT (pid:3157)
+[2016-10-14 13:04:07 +0000] [3152] [INFO] Worker exiting (pid: 3152)
+[2016-10-14 13:04:07 +0000] [3157] [INFO] Worker exiting (pid: 3157)
+[2016-10-14 13:04:07 +0000] [4758] [INFO] Booting worker with pid: 4758
+[2016-10-14 13:04:07 +0000] [4759] [INFO] Booting worker with pid: 4759
+[2016-10-14 13:07:19 +0000] [4759] [INFO] Worker exiting (pid: 4759)
+[2016-10-14 13:07:19 +0000] [4758] [INFO] Worker exiting (pid: 4758)
+[2016-10-14 13:07:19 +0000] [3156] [INFO] Worker exiting (pid: 3156)
+[2016-10-14 13:07:19 +0000] [3158] [INFO] Worker exiting (pid: 3158)
+[2016-10-14 13:07:19 +0000] [3142] [INFO] Handling signal: term
+[2016-10-14 13:11:30 +0000] [2693] [INFO] Starting gunicorn 19.6.0
+[2016-10-14 13:11:30 +0000] [2693] [INFO] Listening at: http://0.0.0.0:5000 (2693)
+[2016-10-14 13:11:30 +0000] [2693] [INFO] Using worker: sync
+[2016-10-14 13:11:30 +0000] [2703] [INFO] Booting worker with pid: 2703
+[2016-10-14 13:11:30 +0000] [2704] [INFO] Booting worker with pid: 2704
+[2016-10-14 13:11:30 +0000] [2705] [INFO] Booting worker with pid: 2705
+[2016-10-14 13:11:30 +0000] [2707] [INFO] Booting worker with pid: 2707
+[2016-10-14 14:20:54 +0000] [2693] [CRITICAL] WORKER TIMEOUT (pid:2705)
+[2016-10-14 14:20:54 +0000] [2693] [CRITICAL] WORKER TIMEOUT (pid:2707)
+[2016-10-14 14:20:54 +0000] [2705] [INFO] Worker exiting (pid: 2705)
+[2016-10-14 14:20:54 +0000] [2707] [INFO] Worker exiting (pid: 2707)
+[2016-10-14 14:20:55 +0000] [4108] [INFO] Booting worker with pid: 4108
+[2016-10-14 14:20:55 +0000] [4109] [INFO] Booting worker with pid: 4109
+[2016-10-14 14:45:23 +0000] [2693] [CRITICAL] WORKER TIMEOUT (pid:4108)
+[2016-10-14 14:45:23 +0000] [2693] [CRITICAL] WORKER TIMEOUT (pid:2703)
+[2016-10-14 14:45:23 +0000] [4108] [INFO] Worker exiting (pid: 4108)
+[2016-10-14 14:45:23 +0000] [2703] [INFO] Worker exiting (pid: 2703)
+[2016-10-14 14:45:24 +0000] [4710] [INFO] Booting worker with pid: 4710
+[2016-10-14 14:45:24 +0000] [4711] [INFO] Booting worker with pid: 4711
+[2016-10-14 14:46:58 +0000] [2693] [CRITICAL] WORKER TIMEOUT (pid:4711)
+[2016-10-14 14:46:58 +0000] [4711] [INFO] Worker exiting (pid: 4711)
+[2016-10-14 14:46:58 +0000] [4760] [INFO] Booting worker with pid: 4760
+[2016-10-14 16:00:08,588] ERROR in app: Exception on /bole [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/yuan/daily_news/flaskr/app/view.py", line 53, in bole
+    feed_response = json.loads(requests.get(server_url + '/bole').content)
+  File "/usr/lib/python2.7/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 421, in request
+    prep = self.prepare_request(req)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 359, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "/usr/lib/python2.7/dist-packages/requests/models.py", line 287, in prepare
+    self.prepare_url(url, params)
+  File "/usr/lib/python2.7/dist-packages/requests/models.py", line 334, in prepare_url
+    scheme, auth, host, port, path, query, fragment = parse_url(url)
+  File "/usr/lib/python2.7/dist-packages/urllib3/util.py", line 390, in parse_url
+    raise LocationParseError("Failed to parse: %s" % url)
+LocationParseError: Failed to parse: Failed to parse: 127.0.0.1:5001bole
+[2016-10-14 16:00:34 +0000] [6410] [INFO] Starting gunicorn 19.6.0
+[2016-10-14 16:00:34 +0000] [6410] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-14 16:00:34 +0000] [6410] [ERROR] Retrying in 1 second.
+[2016-10-14 16:00:35 +0000] [6410] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-14 16:00:35 +0000] [6410] [ERROR] Retrying in 1 second.
+[2016-10-14 16:00:36 +0000] [6410] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-14 16:00:36 +0000] [6410] [ERROR] Retrying in 1 second.
+[2016-10-14 16:00:37 +0000] [6410] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-14 16:00:37 +0000] [6410] [ERROR] Retrying in 1 second.
+[2016-10-14 16:00:38 +0000] [6410] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-14 16:00:38 +0000] [6410] [ERROR] Retrying in 1 second.
+[2016-10-14 16:00:39 +0000] [6410] [ERROR] Can't connect to ('0.0.0.0', 5000)
+[2016-10-14 16:00:39 +0000] [6421] [INFO] Starting gunicorn 19.6.0
+[2016-10-14 16:00:39 +0000] [6421] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-14 16:00:39 +0000] [6421] [ERROR] Retrying in 1 second.
+[2016-10-14 16:00:40 +0000] [6421] [ERROR] Connection in use: ('0.0.0.0', 5000)
+[2016-10-14 16:00:40 +0000] [6421] [ERROR] Retrying in 1 second.
+[2016-10-14 16:00:41 +0000] [6421] [INFO] Listening at: http://0.0.0.0:5000 (6421)
+[2016-10-14 16:00:41 +0000] [6421] [INFO] Using worker: sync
+[2016-10-14 16:00:41 +0000] [6434] [INFO] Booting worker with pid: 6434
+[2016-10-14 16:00:41 +0000] [6436] [INFO] Booting worker with pid: 6436
+[2016-10-14 16:00:41 +0000] [6437] [INFO] Booting worker with pid: 6437
+[2016-10-14 16:00:42 +0000] [6438] [INFO] Booting worker with pid: 6438

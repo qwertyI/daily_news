@@ -5,18 +5,11 @@ import MySQLdb
 
 api = Api(app)
 
-conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
-
-
-class HelloWorld(Resource):
-
-    def get(self):
-        return {'hello': 'world'}
-
 
 class Info(Resource):
 
     def get(self):
+        conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
         cursor = conn.cursor()
         cursor.execute(
             'select distinct(topic_href), topic_title, id, topic_href, topic_reply_num from topic order by spider_time desc limit 10;')
@@ -35,6 +28,7 @@ class Info(Resource):
 class CnBlog(Resource):
 
     def get(self):
+        conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
         cursor = conn.cursor()
         cursor.execute(
             'select distinct(href), title, id, recommended, readed, href from cnblog order by spider_time desc limit 10;')
@@ -54,6 +48,7 @@ class CnBlog(Resource):
 class Bole(Resource):
 
     def get(self):
+        conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
         cursor = conn.cursor()
         cursor.execute('select distinct(href), title, id, img, href from bole order by id desc limit 10;')
         result = cursor.fetchone()
@@ -67,7 +62,6 @@ class Bole(Resource):
             result = cursor.fetchone()
         return feed_response
 
-api.add_resource(HelloWorld, '/hello_world')
 api.add_resource(Info, '/info')
 api.add_resource(CnBlog, '/cnblog')
 api.add_resource(Bole, '/bole')

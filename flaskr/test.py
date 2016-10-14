@@ -1,9 +1,8 @@
 import requests
 import json
+import MySQLdb
 
-print requests.get('http://127.0.0.1:5001/cnblog').content
-print type(requests.get('http://127.0.0.1:5001/cnblog').content)
-content = requests.get('http://127.0.0.1:5001/cnblog').content
-feed = json.loads(content)
-print feed
-print type(feed)
+conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
+cursor = conn.cursor()
+cursor.execute('update topic set topic_title = \'222222\' where topic_href=\'https://testerhome.com//topics/6103\';')
+print len(cursor.fetchall())

@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
-from app import app
+from app import app, server_url
 import requests
-from flask import render_template
-import MySQLdb
+from flask import render_template, redirect, url_for
 import json
-
-conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
 
 
 @app.route('/')
+def index():
+    return redirect(url_for('info'))
+
+
 @app.route('/info')
 def info():
-    feed_response = json.loads(requests.get('http://127.0.0.1:5001/info').content)
+    feed_response = json.loads(requests.get(server_url + '/info').content)
 
     infos = []
     for response in feed_response:
@@ -30,7 +31,7 @@ def info():
 
 @app.route('/cnblog')
 def cnblog():
-    feed_response = json.loads(requests.get('http://127.0.0.1:5001/cnblog').content)
+    feed_response = json.loads(requests.get(server_url + '/cnblog').content)
 
     infos = []
     for response in feed_response:
@@ -49,8 +50,7 @@ def cnblog():
 
 @app.route('/bole')
 def bole():
-    # conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
-    feed_response = json.loads(requests.get('http://127.0.0.1:5001/bole').content)
+    feed_response = json.loads(requests.get(server_url + '/bole').content)
 
     infos = []
     for response in feed_response:
