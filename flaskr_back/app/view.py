@@ -1,9 +1,22 @@
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api, reqparse, abort
 from app import app
 import MySQLdb
 
 
 api = Api(app)
+TODOS = {
+    'todo1': {'task': 'build an API'},
+    'todo2': {'task': '?????'},
+    'todo3': {'task': 'profit!'},
+}
+
+
+def abort_if_todo_doesnt_exist(todo_id):
+    if todo_id not in TODOS:
+        abort(404, message="Todo {} doesn't exist".format(todo_id))
+
+parser = reqparse.RequestParser()
+parser.add_argument('task', type=str)
 
 
 class Info(Resource):
@@ -62,7 +75,36 @@ class Bole(Resource):
             result = cursor.fetchone()
         return feed_response
 
+
+class Taste(Resource):
+
+    def get(self):
+        return TODOS
+
+    def post(self):
+        args = parser.parse_args()
+        todo_id = int(max(TODOS.keys()).lstrip('todo')) + 1
+        todo_id = 'todo%i' % todo_id
+        TODOS[todo_id] = {'task': args['task']}
+        return {'message': 'success'}
+
+
+class TodoList(Resource):
+
+    def get(self):
+        return TODOS
+
+    def post(self):
+        args = parser.parse_args()
+        todo_id = int(max(TODOS.keys()).lstrip('todo')) + 1
+        todo_id = 'todo%i' % todo_id
+        TODOS[todo_id] = {'task': args['task']}
+        return TODOS[todo_id], 201
+
+
 api.add_resource(Info, '/info')
 api.add_resource(CnBlog, '/cnblog')
 api.add_resource(Bole, '/bole')
+api.add_resource(Taste, '/taste')
+api.add_resource(TodoList, '/todos')
 

@@ -2,10 +2,22 @@
 <html lang="en">
 <link href="/static/aggsite.css" rel="stylesheet" type="text/css">
 <head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
     <link rel="icon" href="/static/bitbug_favicon.ico" type="image/x-ico">
     <meta charset="UTF-8">
     <title>供你所需的最新消息</title>
 </head>
+<style>
+    #fixedLayer {
+        position:fixed;
+        left: 40px;
+        top: 10px;
+        width:100px;
+        line-height:30px;
+        background: #FC6;
+        border:1px solid #F90;
+        }
+</style>
 <body>
 <div class="col-md">
     <div class="post_nav_block_wrapper">
@@ -24,13 +36,18 @@
     <div class="post_item">
         <table>
             <tr>
-                <td><a id={{info.id}} class="titlelnk" href={{info.href}} target="_blank">{{info.title}}</a></td>
+                <td><a id={{info.id}} class="titlelnk" href={{info.href}} target="_blank" onclick="Taste()">{{info.title}}</a></td>
             </tr>
             <tr>
                 <td><a class="article_view">推荐指数：{{info.recommended}}</a>
                     <a class="article_view">阅读指数：{{info.readed}}</a>
                 </td>
             </tr>
+            <script>
+                function Taste(){
+                    $.post('https://127.0.0.1:5001/taste', {'table': '{{class_status}}', 'id': '{{info.id}}'});
+                }
+            </script>
             <tr class="clear"></tr>
         </table>
     </div>
