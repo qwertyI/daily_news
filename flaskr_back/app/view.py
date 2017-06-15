@@ -44,7 +44,7 @@ class CnBlog(Resource):
         conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='111111', db='testerhome', charset='utf8')
         cursor = conn.cursor()
         cursor.execute(
-            'select distinct(href), title, id, recommended, readed, href from cnblog order by spider_time desc limit 10;')
+            'select distinct(href), title, id, recommended, readed, href from cnblog order by id desc limit 10;')
         result = cursor.fetchone()
         feed_response = []
         while result is not None:
